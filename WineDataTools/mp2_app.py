@@ -24,7 +24,7 @@ if red_file and white_file:
     df = io_utils.combine_dataframes([red_df, white_df])
     df = io_utils.remove_duplicates(df)
 
-    st.success("Data loaded successfully!")
+    st.success("Data loaded successfully!!")
 
     # ------------------------
     # Data preview
