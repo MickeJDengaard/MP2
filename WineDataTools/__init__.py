@@ -1,4 +1,4 @@
-from .io import read_wine_data, combine_dataframes, remove_duplicates
+from .data_io import read_wine_data, combine_dataframes, remove_duplicates
 from .stats import describe_wine_data, mean_comparison
 from .plots import (
     show_histograms,
