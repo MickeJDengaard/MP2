@@ -1,7 +1,5 @@
 import streamlit as st
 import pandas as pd
-from io import BytesIO
-import io as io_module
 import plots
 import stats
 import data_io as io_utils
@@ -11,7 +9,7 @@ import plotly.express as px
 st.title("Wine Quality Data Exploration")
 
 # ------------------------
-# Upload sektion
+# Upload Section | So the user can upload their own data
 # ------------------------
 st.sidebar.header("Upload Wine Data")
 red_file = st.sidebar.file_uploader("Upload red wine Excel", type=["xlsx"])

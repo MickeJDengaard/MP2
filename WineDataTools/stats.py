@@ -1,7 +1,7 @@
 import pandas as pd
 
 def describe_wine_data(df: pd.DataFrame, verbose: bool = True, round_digits: int = 0) -> pd.DataFrame:
-    """Genererer deskriptiv statistik for datasættet."""
+    """Generating data that summarizes the data. with descriptive statistics"""
     wine_summary = df.describe(include='all').transpose()
     wine_summary = wine_summary.drop(columns=[c for c in ['unique','top','freq'] if c in wine_summary.columns], errors="ignore")
 
@@ -22,17 +22,16 @@ def describe_wine_data(df: pd.DataFrame, verbose: bool = True, round_digits: int
 
 def mean_comparison(df: pd.DataFrame, category_col: str = "type"):
     """
-    Beregner gennemsnit for alle numeriske kolonner opdelt på kategori,
-    samt forskellen mellem de to kategorier.
+    Calculates mean values for all numeric columns, grouped by category.
 
     Args:
-        df (pd.DataFrame): Input DataFrame med wine data.
-        category_col (str): Kolonne med kategori ('type' som standard).
+        df (pd.DataFrame): Input DataFrame with wine data.
+        category_col (str): Column with category ('type' by default).
 
     Returns:
         tuple: (means_df, diff_df)
-            means_df: DataFrame med gennemsnit pr. kategori
-            diff_df: Series med forskel white - red
+            means_df: DataFrame with mean values per category
+            diff_df: Series with difference white - red
     """
     numeric_cols = df.select_dtypes(include="number").columns
     means = df.groupby(category_col)[numeric_cols].mean()
