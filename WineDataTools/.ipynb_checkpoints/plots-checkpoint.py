@@ -6,9 +6,7 @@ import seaborn as sns
 sns.set(style="whitegrid")
 
 
-# -------------------------------
 # Histograms
-# -------------------------------
 def show_histograms(df: pd.DataFrame, bins: int = 10, layout: str = "separate", bell_curve: bool = False):
     numeric_cols = df.select_dtypes(include="number").columns
 
@@ -89,9 +87,7 @@ def show_grouped_histograms(df: pd.DataFrame, category_col="type", bins=10, layo
             plt.show()
 
 
-# -------------------------------
 # Boxplots
-# -------------------------------
 def show_boxplots(df: pd.DataFrame, layout: str = "grid", category_col=None):
     numeric_cols = df.select_dtypes(include="number").columns
     if category_col and category_col in numeric_cols:
@@ -123,9 +119,7 @@ def boxplots_by_type(df: pd.DataFrame, category_col="type"):
         plt.show()
 
 
-# -------------------------------
 # Scatterplots
-# -------------------------------
 def scatter_vs_quality(df: pd.DataFrame, features=None, target="quality", category_col="type"):
     if features is None:
         features = ["alcohol", "residual sugar", "pH"]
@@ -140,9 +134,7 @@ def scatter_vs_quality(df: pd.DataFrame, features=None, target="quality", catego
             plt.show()
 
 
-# -------------------------------
 # Correlation heatmap
-# -------------------------------
 def show_correlation_heatmap(df: pd.DataFrame):
     numeric_cols = df.select_dtypes(include="number").columns
     corr = df[numeric_cols].corr()
@@ -152,9 +144,7 @@ def show_correlation_heatmap(df: pd.DataFrame):
     plt.show()
 
 
-# -------------------------------
 # Mean comparisons
-# -------------------------------
 def mean_comparison(df: pd.DataFrame, features=None, category_col="type"):
     if features is None:
         features = df.select_dtypes(include="number").columns.tolist()
